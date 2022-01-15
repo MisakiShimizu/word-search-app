@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+// import Result from './Results.js'
 import './App.css';
 
 function App() {
@@ -8,6 +9,8 @@ function App() {
   const [word, setWord] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
+  const [ready, setReady] = useState(true);
+
 
   // useEffect to mkae API to Merriam Webster API
   useEffect( () => {
@@ -19,13 +22,13 @@ function App() {
         key: apiKey,
       }
     }).then( (response) => {
-      console.log(response.data);
-      setWord(response.data);
+      console.log(response.data[0]);
+      setWord(response.data[0]);
+      setReady(false);
     });
-  }, [searchTerm]);
+  }, []);
 
   const handleInput = (event) => {
-    event.preventDefault();
     console.log("test", event.target.value);
     setUserInput(event.target.value);
   }
@@ -33,18 +36,21 @@ function App() {
     event.preventDefault();
     setSearchTerm(userInput);
   }
-
   return (
     <div className="App">
       <header>
         <h1>Word Search</h1>
       </header>
       <form onSubmit={ handleSubmit }>
-        <label htmlFor="search">Look through the dictionary here</label>
+        <label htmlFor="search">Look through the dictionary here </label>
         <input type="text" id="search" onChange={ handleInput } value={ userInput }/>
         <button>Search</button>
       </form>
-
+    
+    {/* <div>
+      <h2>{word.meta.id}</h2>
+    </div> */}
+      
       
     </div>
   );

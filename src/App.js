@@ -23,15 +23,26 @@ function App() {
       setWord(response.data);
     });
   }, [searchTerm]);
+
+  const handleInput = (event) => {
+    event.preventDefault();
+    console.log("test", event.target.value);
+    setUserInput(event.target.value);
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSearchTerm(userInput);
+  }
+
   return (
     <div className="App">
       <header>
         <h1>Word Search</h1>
       </header>
-      <form>
+      <form onSubmit={ handleSubmit }>
         <label htmlFor="search">Look through the dictionary here</label>
-        <input type="text" id="search"/>
-        <button></button>
+        <input type="text" id="search" onChange={ handleInput } value={ userInput }/>
+        <button>Search</button>
       </form>
 
       

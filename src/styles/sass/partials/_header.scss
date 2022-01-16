@@ -1,0 +1,41 @@
+// Header
+
+header,
+.form-section {
+    background-color: #A9B4C2 ;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+label {
+    text-align: center;
+    justify-content: center;
+    margin-top: 300px;
+    margin-bottom: 20px;
+}
+.input-container {
+    margin: 0 auto;
+    width: 100%;
+}
+input {
+    position: relative;
+    left: 260px;
+    border-radius: 10px;
+    border:none;
+    background-color: #EEF1EF;
+    width: 50%;
+    margin:10px auto 40px auto;
+    padding:10px 0 10px 20px;
+}
+.fa-search {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    right: 280px;
+    bottom: 80px;
+    z-index: 1;
+    font-size: 2rem;
+    color:#5E6572;
+}

@@ -1,0 +1,24 @@
+// Typography
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+
+body {
+    font-size: 125%;
+    font-family: 'Playfair Display', serif;
+}
+h1 {
+    font-size: 3rem;
+    color: #dddde2;
+}
+label {
+    font-size: 2rem;
+}
+h2 {
+    font-size: 4rem;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+.definition,
+.example {
+    font-size: 1.7rem;
+}

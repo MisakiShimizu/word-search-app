@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import '../node_modules/font-awesome/css/font-awesome.min.css'; 
+import Footer from './Footer.js';
 // import Result from './Results.js'
-import './App.css';
+import './styles/sass/App.css';
 
 function App() {
   const apiKey = "ecee6254-f8f9-42d1-b310-d45f930f7e04";
@@ -9,8 +11,8 @@ function App() {
   const [word, setWord] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
-  const [ready, setReady] = useState(true);
 
+// const ApiCall = () => {
 
   // useEffect to mkae API to Merriam Webster API
   useEffect( () => {
@@ -24,34 +26,64 @@ function App() {
     }).then( (response) => {
       console.log(response.data[0]);
       setWord(response.data[0]);
-      setReady(false);
     });
-  }, []);
+  }, [searchTerm]);
+// }
 
   const handleInput = (event) => {
-    console.log("test", event.target.value);
+    console.log(event.target.value);
     setUserInput(event.target.value);
   }
   const handleSubmit = (event) => {
     event.preventDefault();
     setSearchTerm(userInput);
+    // ApiCall();
   }
+
+  const renderWord = () => {
+    if (word === undefined || word.length === 0 || word === null|| word.length < 2 )
+            return 
+        else {
+            return (
+            <div className='wrapper outer-word-container'>
+              <div className="inner-word-container">
+                <h2>{word.meta.id}</h2>
+                <p className='pronunciation'>{word.hwi.prs[0].mw}</p>
+                <div className="definition-container">
+                  <p className='definition'>{word.shortdef}</p>
+                </div>
+              </div>
+            </div>
+            )}
+  }
+  
   return (
     <div className="App">
       <header>
-        <h1>Word Search</h1>
-      </header>
-      <form onSubmit={ handleSubmit }>
-        <label htmlFor="search">Look through the dictionary here </label>
-        <input type="text" id="search" onChange={ handleInput } value={ userInput }/>
-        <button>Search</button>
-      </form>
-    
-    {/* <div>
-      <h2>{word.meta.id}</h2>
-    </div> */}
+        <div className="wrapper">
+          <h1>Word Search</h1>
+        </div>
+      </header> 
+      <main>
+        <section className='form-section'>
+            <div className="wrapper">
+              <form onSubmit={ handleSubmit }>
+                <label htmlFor="search">Look through the dictionary here </label>
+                <div className="input-container">
+                  <input type="text" id="search" placeholder="Type your word here..." onChange={ handleInput } value={ userInput } 
+                  />
+                  <i className='fa fa-search'></i>
+                </div>
+              </form>
+            </div>
+        </section>
+        <section className='results'>
+      {renderWord()}
+
+        </section>
+      </main>
       
-      
+      <Footer />
     </div>
   );
 }

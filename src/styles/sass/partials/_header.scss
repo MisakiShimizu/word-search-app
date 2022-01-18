@@ -4,6 +4,9 @@ header,
 .form-section {
     background-color: #A9B4C2 ;
 }
+h1 {
+    padding-top: 10px;;
+}
 form {
     display: flex;
     flex-direction: column;
@@ -17,7 +20,7 @@ label {
 }
 .input-container {
     margin: 0 auto;
-    width: 100%;
+    width: 50%;
     display: flex;
     justify-content: center;
 }
@@ -25,19 +28,27 @@ input {
     border-radius: 10px;
     border:none;
     background-color: #EEF1EF;
-    width: 50%;
+    width: 100%;
     margin:10px auto 40px auto;
     padding:10px 0 10px 20px;
     flex-shrink: 2;
 }
 .fa-search {
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-    right: 280px;
-    bottom: -15px;
     z-index: 1;
     font-size: 2rem;
     color:#5E6572;
-
+}
+button {
+    width: 15%;
+    height: 47px;
+    position: relative;
+    bottom: -10px;
+    left: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: #EEF1EF;
+    z-index:2;
+    &:hover {
+        border: #5e6572 solid;
+    }
 }

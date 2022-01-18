@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 import Footer from './Footer.js';
-// import Result from './Results.js'
+import Results from './Results.js'
 import './styles/sass/App.css';
 
 function App() {
@@ -45,15 +45,17 @@ function App() {
             return 
         else {
             return (
-            <div className='wrapper outer-word-container'>
-              <div className="inner-word-container">
-                <h2>{word.meta.id}</h2>
-                <p className='pronunciation'>{word.hwi.prs[0].mw}</p>
-                <div className="definition-container">
-                  <p className='definition'>{word.shortdef}</p>
-                </div>
+              <div> 
+
+                <Results 
+                word={word.meta.id}
+                pronunciation={word.hwi.prs[0].mw}
+                definition={word.shortdef}
+                />   
+                    
               </div>
-            </div>
+            
+              
             )}
   }
   
@@ -72,14 +74,14 @@ function App() {
                 <div className="input-container">
                   <input type="text" id="search" placeholder="Type your word here..." onChange={ handleInput } value={ userInput } 
                   />
-                  <i className='fa fa-search'></i>
+                  <button><i className='fa fa-search'></i></button>
                 </div>
               </form>
             </div>
         </section>
         <section className='results'>
       {renderWord()}
-
+     
         </section>
       </main>
       

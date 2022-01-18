@@ -1,11 +1,4 @@
 // Media Queries
-@media (max-width:1200px) {
-    .fa-search {
-        position: relative;
-        right: 220px;
-    }
-}
-
 @media (max-width: 700px) {
     
     label {
@@ -14,9 +7,16 @@
     }
     input {
         width:70%;
+        font-size: 1rem;
+    }
+    .input-container {
+        width: 80%;
     }
     .fa-search {
-        display: none;
+        font-size: 1.5rem;
+    }
+    button {
+        height: 45px;
     }
     h2 {
         font-size: 2rem;

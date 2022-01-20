@@ -67,7 +67,7 @@ function App() {
         <div key={word.meta.uuid}> 
 
           <Results 
-          word={word.meta.stems[0]}
+          word={word.hwi.hw}
           pronunciation={word.hwi.prs[0].mw}
           definition={word.shortdef}
           audio={word.hwi.prs[0].sound.audio}

@@ -58,7 +58,7 @@ function App() {
       return (
         <div className='instructions-container'>
           <div className="wrapper">
-            <p className='instructions'>Type in a word in the search bar above <i className='fa fa-arrow-up'></i> and discover the definition below <i className='fa fa-arrow-down'></i></p>
+            <p className='instructions'>Type in a word in the search bar above <i className='fa fa-arrow-up' aria-hidden="true"></i> and discover the definition below <i className='fa fa-arrow-down' aria-hidden="true"></i></p>
           </div>
         </div>
       )
@@ -95,7 +95,7 @@ function App() {
                 <div className="input-container">
                   <input type="text" id="search" placeholder="Type your word here..." onChange={ handleInput } value={ userInput } 
                   />
-                  <button type="submit" className='search-button'><i className='fa fa-search'></i></button>
+                  <button type="submit" className='search-button'><i className='fa fa-search' aria-hidden="true"></i></button>
                 </div>
               </form>
 

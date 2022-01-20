@@ -15,7 +15,7 @@ const Results = (props) => {
                 <div className="pronunciation-container">
                     <p className='pronunciation'>Pronunciation: “{props.pronunciation}”</p>
                     <div>
-                        <button onClick={ play } className="audio"> <i className="fa fa-play-circle"></i> </button>
+                        <button onClick={ play } className="audio"> <i className="fa fa-play-circle" aria-label="Click to play the pronunciation."></i> </button>
                     </div>
                 </div>
                 <div className="definition-container">

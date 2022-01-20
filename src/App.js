@@ -1,8 +1,11 @@
+// Modules
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import '../node_modules/font-awesome/css/font-awesome.min.css'; 
-import Footer from './Footer.js';
-import Results from './Results.js'
+import '../node_modules/font-awesome/css/font-awesome.min.css';
+// Components
+import Footer from './components/Footer.js';
+import Results from './components/Results.js'
+// Styles
 import './styles/sass/App.css';
 
 function App() {
@@ -11,8 +14,6 @@ function App() {
   const [word, setWord] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
-
-// const ApiCall = () => {
 
   // useEffect to mkae API to Merriam Webster API
   useEffect( () => {
@@ -24,45 +25,54 @@ function App() {
         key: apiKey,
       }
     }).then( (response) => {
-      console.log(response.data[0]);
       setWord(response.data[0]);
+    })
+    .catch( (error) => {
+      if(error.message) {
+        alert("Sorry, we can not define that word, please refresh the page and select a new word.")
+      }else {
+        alert("Something went wrong. We are currently working on the issue.")
+      }
     });
   }, [searchTerm]);
-// }
+  
 
   const handleInput = (event) => {
-    console.log(event.target.value);
-    setUserInput(event.target.value);
+    const userWord = event.target.value;
+    setUserInput(userWord);
   }
   const handleSubmit = (event) => {
     event.preventDefault();
     setSearchTerm(userInput);
-    // ApiCall();
   }
-
+  
   const renderWord = () => {
+    const firstLetter = userInput.charAt(0);
+    
     if (word === undefined || word.length === 0 || word === null|| word.length < 2 )
-            return 
-        else {
-            return (
-              <div> 
+      
+      return <p>Please type in a word at the top.</p>
+  else {
+      return (
+        <div key={word.meta.uuid}> 
 
-                <Results 
-                word={word.meta.id}
-                pronunciation={word.hwi.prs[0].mw}
-                definition={word.shortdef}
-                />   
-                    
-              </div>
-            
+          <Results 
+          word={word.meta.stems[0]}
+          pronunciation={word.hwi.prs[0].mw}
+          definition={word.shortdef}
+          audio={word.hwi.prs[0].sound.audio}
+          audioLetter={firstLetter}
+          />   
               
-            )}
+        </div>
+        
+      )}
   }
   
   return (
     <div className="App">
       <header>
-        <div className="wrapper">
+        <div className="wrapper header-container">
           <h1>Word Search</h1>
         </div>
       </header> 
@@ -74,7 +84,7 @@ function App() {
                 <div className="input-container">
                   <input type="text" id="search" placeholder="Type your word here..." onChange={ handleInput } value={ userInput } 
                   />
-                  <button><i className='fa fa-search'></i></button>
+                  <button type="submit" className='search-button'><i className='fa fa-search'></i></button>
                 </div>
               </form>
             </div>

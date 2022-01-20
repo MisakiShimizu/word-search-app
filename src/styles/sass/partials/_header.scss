@@ -7,6 +7,12 @@ header,
 h1 {
     padding-top: 10px;;
 }
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -38,7 +44,7 @@ input {
     font-size: 2rem;
     color:#5E6572;
 }
-button {
+.search-button {
     width: 15%;
     height: 47px;
     position: relative;

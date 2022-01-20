@@ -250,6 +250,15 @@ input {
   border: #5e6572 solid;
 }
 
+.instructions-container {
+  background-color: rgba(125, 152, 161, 0.5);
+}
+
+.instructions {
+  text-align: center;
+  padding: 10px;
+}
+
 body {
   font-size: 125%;
   font-family: "Playfair Display", serif;
@@ -262,6 +271,10 @@ h1 {
 
 label {
   font-size: 2rem;
+}
+
+.instructions {
+  font-size: 1.5rem;
 }
 
 h2 {
@@ -317,9 +330,27 @@ h2,
   padding: 20px 0;
 }
 
-.definition,
-.example {
+.definition {
   padding: 10px;
+  margin-left: 80px;
+  width: 80%;
+  text-align: justify;
+}
+
+.pronunciation-container {
+  display: flex;
+}
+
+.audio {
+  border: none;
+  margin-left: 20px;
+  position: relative;
+  bottom: 60px;
+  background-color: #EEF1EF;
+}
+
+.fa-play-circle {
+  font-size: 3rem;
 }
 
 footer {
@@ -357,7 +388,7 @@ footer {
     font-size: 1.5rem;
   }
 
-  button {
+  .search-button {
     height: 45px;
   }
 
@@ -367,6 +398,14 @@ footer {
 
   .definition {
     font-size: 1rem;
+    width: 70%;
+  }
+
+  .audio {
+    bottom: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
   }
 }
 @media (max-width: 400px) {
@@ -381,6 +420,10 @@ footer {
   }
 
   input {
+    font-size: 1rem;
+  }
+
+  .instructions {
     font-size: 1rem;
   }
 }

@@ -9,6 +9,7 @@ import Results from './components/Results.js'
 import './styles/sass/App.css';
 
 function App() {
+
   const apiKey = "ecee6254-f8f9-42d1-b310-d45f930f7e04";
 
   const [word, setWord] = useState([]);
@@ -27,20 +28,23 @@ function App() {
     }).then( (response) => {
       setWord(response.data[0]);
     })
+    // Error Handling
     .catch( (error) => {
       if(error.message) {
-        alert("Sorry, we can not define that word, please refresh the page and select a new word.")
+        alert("Sorry, we can not define that word, please select a new word.")
+        window.location.reload();
       }else {
         alert("Something went wrong. We are currently working on the issue.")
       }
     });
   }, [searchTerm]);
   
-
+// User Input
   const handleInput = (event) => {
     const userWord = event.target.value;
     setUserInput(userWord);
   }
+  // Connecting user input to submit event listener
   const handleSubmit = (event) => {
     event.preventDefault();
     setSearchTerm(userInput);
@@ -51,7 +55,13 @@ function App() {
     
     if (word === undefined || word.length === 0 || word === null|| word.length < 2 )
       
-      return <p>Please type in a word at the top.</p>
+      return (
+        <div className='instructions-container'>
+          <div className="wrapper">
+            <p className='instructions'>Type in a word in the search bar above <i className='fa fa-arrow-up'></i> and discover the definition below <i className='fa fa-arrow-down'></i></p>
+          </div>
+        </div>
+      )
   else {
       return (
         <div key={word.meta.uuid}> 
@@ -79,6 +89,7 @@ function App() {
       <main>
         <section className='form-section'>
             <div className="wrapper">
+              {/* Search Bar that stores users queries */}
               <form onSubmit={ handleSubmit }>
                 <label htmlFor="search">Look through the dictionary here </label>
                 <div className="input-container">
@@ -87,6 +98,7 @@ function App() {
                   <button type="submit" className='search-button'><i className='fa fa-search'></i></button>
                 </div>
               </form>
+
             </div>
         </section>
         <section className='results'>

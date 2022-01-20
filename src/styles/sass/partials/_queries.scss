@@ -20,7 +20,7 @@
     .fa-search {
         font-size: 1.5rem;
     }
-    button {
+    .search-button {
         height: 45px;
     }
     h2 {
@@ -28,6 +28,13 @@
     }
     .definition {
         font-size: 1rem;
+        width: 70%;
+    }
+    .audio {
+        bottom: 30px;
+        width:100%;
+        display: flex;
+        justify-content: flex-end;
     }
 }
 @media (max-width:400px) {
@@ -40,6 +47,9 @@
         font-size: 1.3rem;
     }
     input {
+        font-size: 1rem;
+    }
+    .instructions {
         font-size: 1rem;
     }
     

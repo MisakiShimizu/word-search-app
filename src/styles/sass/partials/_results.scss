@@ -20,7 +20,22 @@ h2,
 .definition-container {
     padding: 20px 0;
 }
-.definition,
-.example {
+.definition {
     padding:10px;
+    margin-left: 80px;
+    width:80%;
+    text-align: justify;
+}
+.pronunciation-container {
+    display: flex;
+}
+.audio {
+    border: none;
+    margin-left: 20px;
+    position: relative;
+    bottom: 60px;
+    background-color: #EEF1EF;
+}
+.fa-play-circle {
+    font-size: 3rem;
 }

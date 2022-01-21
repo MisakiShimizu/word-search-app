@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
+import { Helmet } from 'react-helmet';
 // Components
 import Footer from './components/Footer.js';
 import Results from './components/Results.js'
@@ -81,6 +82,9 @@ function App() {
   
   return (
     <div className="App">
+      <Helmet>
+        <title>Word Search</title>
+      </Helmet>
       <header>
         <div className="wrapper header-container">
           <h1>Word Search</h1>

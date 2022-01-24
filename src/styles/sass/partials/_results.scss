@@ -1,0 +1,41 @@
+// results
+.results {
+    flex: 1 0 auto;
+}
+.outer-word-container {
+    background-color: #5E6572;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+.inner-word-container {
+    background-color: #EEF1EF ;
+    width: 90%;
+    margin: 40px auto;
+    padding: 10px;
+}
+h2,
+.pronunciation {
+    padding-left: 10px;
+}
+.definition-container {
+    padding: 20px 0;
+}
+.definition {
+    padding:10px;
+    margin-left: 80px;
+    width:80%;
+    text-align: justify;
+}
+.pronunciation-container {
+    display: flex;
+}
+.audio {
+    border: none;
+    margin-left: 20px;
+    position: relative;
+    bottom: 60px;
+    background-color: #EEF1EF;
+}
+.fa-play-circle {
+    font-size: 3rem;
+}

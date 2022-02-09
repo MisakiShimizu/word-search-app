@@ -82,9 +82,6 @@ function App() {
   
   return (
     <div className="App">
-      <Helmet>
-        <title>Word Search</title>
-      </Helmet>
       <header>
         <div className="wrapper header-container">
           <h1>Word Search</h1>
@@ -97,7 +94,7 @@ function App() {
               <form onSubmit={ handleSubmit }>
                 <label htmlFor="search">Look through the dictionary here </label>
                 <div className="input-container">
-                  <input type="text" id="search" placeholder="Type your word here..." onChange={ handleInput } value={ userInput } 
+                  <input type="text" id="search" placeholder="Type your word here..." onChange={ handleInput } value={ userInput } required 
                   />
                   <button type="submit" className='search-button'><i className='fa fa-search' aria-hidden="true"></i></button>
                 </div>

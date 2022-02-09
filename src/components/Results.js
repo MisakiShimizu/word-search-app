@@ -1,13 +1,18 @@
 // results
+
+import { useEffect } from "react"
+
 // Display definition and phonetics
 const Results = (props) => {
   
-    let audio = new Audio(`https://media.merriam-webster.com/audio/prons/en/us/mp3/${props.audioLetter}/${props.audio}.mp3`)
+      let audio = new Audio(`https://media.merriam-webster.com/audio/prons/en/us/mp3/${props.audioLetter}/${props.audio}.mp3`)
+
+      
+      const play = () => {
+          audio.play()
+        }
     
-    const play = () => {
-        audio.play()
-    }
-   
+        
     return(
         <div className='wrapper outer-word-container'>
             <div className="inner-word-container">
